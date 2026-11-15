@@ -1,0 +1,9 @@
+{
+  "name": "exemplo-lab02",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
+}
+

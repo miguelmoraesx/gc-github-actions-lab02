@@ -1,0 +1,27 @@
+name: Lab 02 - Exercício 01 - Simple Local
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'exercise-01/**'
+      - '.github/workflows/simple-local.yml'
+  workflow_dispatch:
+
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    container: node:18
+    defaults:
+      run:
+        working-directory: exercise-01
+    steps:
+      - run: node --version
+      - run: npm --version
+      - uses: actions/checkout@v4
+      - run: npm install
+      - name: Executar aplicação
+        run: node app.js
+      - name: Registre a execução
+        run: sleep 30
+
