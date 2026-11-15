@@ -12,16 +12,15 @@ jobs:
   build-node:
     runs-on: ubuntu-latest
     container: node:18
-    defaults:
-      run:
-        working-directory: exercise-01
     steps:
+      - uses: actions/checkout@v4
       - run: node --version
       - run: npm --version
-      - uses: actions/checkout@v4
       - run: npm install
+        working-directory: exercise-01
       - name: Executar aplicação
         run: node app.js
+        working-directory: exercise-01
       - name: Registre a execução
         run: sleep 30
 
